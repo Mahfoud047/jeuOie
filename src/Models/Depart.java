@@ -1,8 +1,11 @@
 package Models;
 
-@SuppressWarnings("serial")
-public class Depart extends Case 
+import java.io.File;
+
+public class Depart extends Case
 {
+	static private String FILE_PATH = "assets\\Media\\caseDepart.png";
+
 	@Override
 	public void jouerCase() {
 
@@ -17,4 +20,9 @@ public class Depart extends Case
 	{
 		return 0;
 	}
+
+    @Override
+    public File getFile() {
+        return new File(this.FILE_PATH);
+    }
 }

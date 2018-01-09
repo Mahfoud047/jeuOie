@@ -1,8 +1,9 @@
 package Models;
 
-@SuppressWarnings("serial")
-public abstract class Question extends Case 
+
+public abstract class Question extends Case
 {
 	protected int DEPLACEMENT=0;
-	protected int k;	
+	protected int k;
+
 }
