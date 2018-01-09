@@ -14,7 +14,7 @@ public class PartieView extends JFrame implements ActionListener
 	static int TAILLEIMAGE = 100;
 //	private Joueur joueur;
 	private PlateauView plat;
-//	PanneauInfo panInfo;
+	PanelView panelView;
 	private static ArrayList<String> [] tableauDefinition =new ArrayList[TAILLEDEFINITION];
     private static String [] tableauImage= new String[TAILLEIMAGE];   
 	private static TreeSet <Integer> Scores =new TreeSet();
@@ -37,12 +37,12 @@ public class PartieView extends JFrame implements ActionListener
 //				,
 //				this.joueur
 		);
-//		panInfo  = new PanneauInfo(					//Panel Info Joueur et PartieView
-//				(getWidth())- (int)width,
-//				610
-////				,
-////				this.joueur
-//		);
+		panelView  = new PanelView(					//Panel Info Joueur et PartieView
+				(getWidth())- (int)width,
+				610
+//				,
+//				this.joueur
+		);
 //	    plat.addMouseListener(panInfo);
 //	    (panInfo.getLancerDes()).addActionListener(plat);
 //	    (panInfo.getQuitter()).addActionListener(this);
@@ -53,7 +53,7 @@ public class PartieView extends JFrame implements ActionListener
 	    menu.setBackground(Color.BLACK);
 	    content.setLayout(new BorderLayout());
 	    content.add(menu,BorderLayout.NORTH);
-//	    content.add(panInfo,BorderLayout.WEST);
+	    content.add(panelView,BorderLayout.WEST);
 	    content.add(plat,BorderLayout.CENTER);
 	    this.setContentPane(content);	    
 	    this.setVisible(true);			//Fenetre Visible

@@ -11,7 +11,7 @@ import java.io.File;
 import java.io.IOException;
 
 public class DeView extends JPanel implements MouseListener, ActionListener {
-    private Bouton lancer;
+    private BoutonView lancer;
     private Image img1;
     private Image img2;
     private int de1;
@@ -32,7 +32,7 @@ public class DeView extends JPanel implements MouseListener, ActionListener {
 
             }
 
-        lancer = new Bouton("           Lancer les des    ");
+        lancer = new BoutonView("           Lancer les des    ");
         lancer.addActionListener(this);
         add(lancer);
     }
