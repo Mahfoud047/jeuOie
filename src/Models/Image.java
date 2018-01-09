@@ -89,4 +89,9 @@ public class Image extends Question
 	public File getFile() {
 		return new File(this.FILE_PATH);
 	}
+
+	@Override
+	public Boolean bloquerPlateau() {
+		return true;
+	}
 }

@@ -19,4 +19,6 @@ public abstract class Case {
     public abstract int getDeplacement();
     public abstract File getFile();
 
+    public abstract Boolean bloquerPlateau();
+
 }

@@ -1,6 +1,7 @@
 package Views;
 
 import Controllers.DesControler;
+import Models.Des;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -20,10 +21,10 @@ public class DeView extends JPanel implements ActionListener {
     private int de2;
     private DesControler desControler;
 
-    public DeView() {
+    public DeView(Des des) {
         super();
 
-        desControler = new DesControler();
+        desControler = new DesControler(des);
 
         JPanel separerPnl = new JPanel();
         separerPnl.setPreferredSize(new Dimension(0, 160));
@@ -104,10 +105,11 @@ public class DeView extends JPanel implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource()==lancer) {
+        if (e.getSource() == lancer) {
             int res[];
             res = desControler.lancerDes();
-            setImages(res[0],res[1]);
+            if (res[0] != 0)
+                setImages(res[0], res[1]);
         }
     }
 }

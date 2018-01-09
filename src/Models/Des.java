@@ -8,7 +8,22 @@ public class Des extends Observable
 	private int valDes1;
 	private int valDes2;
 
-	public Des(){}
+    private Boolean actif;
+
+    static private Des instance;
+
+    private Des(){
+        actif = true;
+    }
+
+    private synchronized static void effectuerSync() {
+        if (instance==null) instance= new Des ();
+    }
+
+    public static Des getInstance() {
+        if (instance==null) effectuerSync();
+        return instance;
+    }
 	
 	public int[] Lancer()
 	{
@@ -22,6 +37,12 @@ public class Des extends Observable
 		resultatDes[0] = valDes1;
 		resultatDes[1] = valDes2;
 
+        actif = false;
+
+        //notif plateau
+        setChanged();
+        notifyObservers("desLances");
+
 		return resultatDes;
 	}
 
@@ -32,4 +53,20 @@ public class Des extends Observable
 	public int getValeurDes2() {
 		return valDes2;
 	}
+
+
+    public void activer()
+    {
+        actif = true;
+    }
+
+    public void desactiver()
+    {
+        actif = false;
+    }
+
+    public Boolean isActif()
+    {
+        return actif;
+    }
 }

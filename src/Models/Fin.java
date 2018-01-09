@@ -106,4 +106,9 @@ public class Fin extends Case
 	public File getFile() {
 		return new File(this.FILE_PATH);
 	}
+
+	@Override
+	public Boolean bloquerPlateau() {
+		return true;
+	}
 }

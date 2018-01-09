@@ -5,12 +5,15 @@ import Models.Des;
 public class DesControler {
     Des des;
 
-    public DesControler() {
-        des = new Des();
+    public DesControler(Des d) {
+        des = d;
     }
 
     public int[] lancerDes() {
-        int resultatDes[] = des.Lancer();
+        int resultatDes[] = { 0 , 0 };
+        if (des.isActif()){
+            resultatDes = des.Lancer();
+        }
         return resultatDes;
     }
 }

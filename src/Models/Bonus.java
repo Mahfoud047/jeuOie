@@ -1,11 +1,8 @@
 package Models;
 
-import javax.swing.*;
-import java.awt.*;
 import java.io.File;
 
-@SuppressWarnings("serial")
-public class Bonus extends Case 
+public class Bonus extends Case
 {
 	static private String FILE_PATH = "assets\\Media\\caseBonus.png";
 	final int POINTGAGNE = 10;
@@ -33,5 +30,10 @@ public class Bonus extends Case
 	@Override
 	public File getFile() {
 		return new File(this.FILE_PATH);
+	}
+
+	@Override
+	public Boolean bloquerPlateau() {
+		return false;
 	}
 }

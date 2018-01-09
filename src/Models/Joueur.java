@@ -1,28 +1,27 @@
 package Models;
 
+import java.io.File;
 import java.util.Observable;
 
-public class Joueur extends Observable
-{	
+public class Joueur extends Observable{
 	private String nom;
-	private int score=0;
-	private int position=0;
+	private int score;
+	private int position;
 	private int pion;
 	private static Joueur instance;
+    private File pionImage;
 
-	private Joueur(){}
-
-//	private Joueur(String jo, int i)
-//	{
-//		this.nom = jo;
-//		position=0;
-//		score =0;
-//		setPion(i);
-//	}
+	private Joueur(){
+        this.nom = "Demo";
+        position=0;
+        score =0;
+        setPion(1);
+    }
 
 	private synchronized static void effectuerSync() {
 		if (instance==null) instance= new Joueur ();
 	}
+
 	public static Joueur getInstance() {
 		if (instance==null) effectuerSync();
 		return instance;
@@ -53,9 +52,10 @@ public class Joueur extends Observable
 		return position;
 	}
 	
-	public void setPosition(int position) 
-	{
+	public void setPosition(int position){
 		this.position = position;
+        setChanged();
+        notifyObservers("pionChanged");
 	}
 
 	public int getPion() 
@@ -63,9 +63,9 @@ public class Joueur extends Observable
 		return pion;
 	}
 
-	public void setPion(int pion) 
-	{
-		this.pion = pion;		
+	public void setPion(int pion){
+		this.pion = pion;
+        pionImage = new File("assets\\Media\\P" + pion + ".png");
 	}
 	
 	public void deplacer(int i)
@@ -77,4 +77,8 @@ public class Joueur extends Observable
 	{	
 		this.setScore(this.getScore() + i);
 	}
+
+    public File getPionImage() {
+        return pionImage;
+    }
 }

@@ -3,16 +3,17 @@ package Models;
 //import Controllers.PanneauInfo;
 
 import java.util.Observable;
+import java.util.Observer;
 import java.util.Random;
 
 
-public class Plateau extends Observable
+public class Plateau extends Observable implements Observer
 {
 	private Case[] cases;
-	private Boolean actif=false;	 
+	private Boolean actif;
 	 
-	public Plateau()
-	{
+	public Plateau(){
+		actif=false;
 		cases = createCases();
 	}
 
@@ -145,9 +146,9 @@ public class Plateau extends Observable
 		actif = true;
 	}
 	
-	public void desactiver()
-	{
+	public void desactiver() {
 		actif = false;
+        Des.getInstance().activer();
 	}
 	
 	public Boolean isActif()
@@ -165,6 +166,13 @@ public class Plateau extends Observable
 //		((Bouton)arg0.getSource()).setEnabled(false);
 //	}
 
+
+    public void jouerCase(int position){
+        cases[position].jouerCase();
+        //change
+        if (cases[position].bloquerPlateau())
+            desactiver();
+    }
 
 //	public void jouer(PanneauInfo l)
 //	{	Joueur j=Joueur.getInstance();
@@ -189,4 +197,11 @@ public class Plateau extends Observable
 	{
 		this.cases = cases;
 	}
+
+    @Override
+    public void update(Observable o, Object arg) {
+        if (o instanceof Des && arg.equals("desLances")){
+            activer();
+        }
+    }
 }
