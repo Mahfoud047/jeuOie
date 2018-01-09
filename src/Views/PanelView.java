@@ -23,6 +23,7 @@ public class PanelView extends JPanel implements MouseListener, ActionListener {
         JLabel nomJoueurLabel;
 
 		setPreferredSize(new Dimension(x,y));
+
 		//meilleur Score
 		JLabel tmp= new JLabel("Meilleur Score   ");
 					add(tmp);
@@ -30,7 +31,8 @@ public class PanelView extends JPanel implements MouseListener, ActionListener {
 					tmp.setFont(font);
 					tmp.setForeground(Color.WHITE);	
 		JPanel best = new JPanel();	font = new Font("Bernard MT Condensed", Font.CENTER_BASELINE, 15);	
-		//Extraire le best score
+
+        //Extraire le best score
 		nomJoueurLabel = new JLabel("Selma");
 		nomJoueurLabel.setFont(font);
 		nomJoueurLabel.setForeground(Color.WHITE);
@@ -42,7 +44,8 @@ public class PanelView extends JPanel implements MouseListener, ActionListener {
 		best.add(scoreLabel);
 		best.setBackground(new Color(123,217,108));
 		add(best);
-		//Joueur
+
+        //Joueur
 		add(new ImageUserView(1));
 		tmp= new JLabel("Nom Du Joueur");		add(tmp);
 		font = new Font("Bernard MT Condensed", Font.CENTER_BASELINE, 20);
