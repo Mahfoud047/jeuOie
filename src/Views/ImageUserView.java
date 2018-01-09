@@ -6,7 +6,6 @@ import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 
-@SuppressWarnings("serial")
 public class ImageUserView extends JPanel
 {
     Image img ;
@@ -20,7 +19,7 @@ public class ImageUserView extends JPanel
         	img = ImageIO.read(new File(tmp));
         } catch (IOException e) 
         {
-        	img = null;        			
+        	img = null;
 	    }  
 	}
 	

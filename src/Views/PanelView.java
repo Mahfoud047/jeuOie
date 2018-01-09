@@ -1,6 +1,5 @@
 package Views;
 
-import Models.Joueur;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
@@ -12,19 +11,18 @@ import java.io.File;
 import java.io.IOException;
 
 public class PanelView extends JPanel implements MouseListener, ActionListener {
-	//private int bestScore;
-	//private Joueur j;
 	private int somme=0;
-	private JLabel bestScoreString;
-	private JLabel NomMeilleurScore;
 	private DeView deView =new DeView();
 	private BoutonView nouvelle,quitter;
 	//private boolean finJeu;
 
 	public PanelView(int x, int y){
-		super();
-//		this.j =j;
-		setPreferredSize(new Dimension(x,y));		
+        super();
+
+        JLabel scoreLabel;
+        JLabel nomJoueurLabel;
+
+		setPreferredSize(new Dimension(x,y));
 		//meilleur Score
 		JLabel tmp= new JLabel("Meilleur Score   ");
 					add(tmp);
@@ -32,22 +30,20 @@ public class PanelView extends JPanel implements MouseListener, ActionListener {
 					tmp.setFont(font);
 					tmp.setForeground(Color.WHITE);	
 		JPanel best = new JPanel();	font = new Font("Bernard MT Condensed", Font.CENTER_BASELINE, 15);	
-		//Extraire le best score 
-//		String bestPlayer= Partie.getBestPlayer();
-//		String bestScore=Partie.getBestScore();
-		NomMeilleurScore = new JLabel("Selma");
-		NomMeilleurScore.setFont(font);
-		NomMeilleurScore.setForeground(Color.WHITE);
-		bestScoreString= new JLabel("60");
-		bestScoreString.setFont(font);
-		bestScoreString.setForeground(Color.YELLOW);
+		//Extraire le best score
+		nomJoueurLabel = new JLabel("Selma");
+		nomJoueurLabel.setFont(font);
+		nomJoueurLabel.setForeground(Color.WHITE);
+		scoreLabel= new JLabel("60");
+		scoreLabel.setFont(font);
+		scoreLabel.setForeground(Color.YELLOW);
 		best.setLayout(new FlowLayout());
-		best.add(NomMeilleurScore);	
-		best.add(bestScoreString);
+		best.add(nomJoueurLabel);
+		best.add(scoreLabel);
 		best.setBackground(new Color(123,217,108));
 		add(best);
 		//Joueur
-		add(new ImageUserView(0));
+		add(new ImageUserView(1));
 		tmp= new JLabel("Nom Du Joueur");		add(tmp);
 		font = new Font("Bernard MT Condensed", Font.CENTER_BASELINE, 20);
 		tmp.setFont(font);
@@ -58,15 +54,15 @@ public class PanelView extends JPanel implements MouseListener, ActionListener {
 		tmp.setFont(font);
 		tmp.setForeground(new Color(0,0,0));
 		JPanel player = new JPanel();
-		NomMeilleurScore = new JLabel("Score ");		
-		NomMeilleurScore.setFont(font);
-		NomMeilleurScore.setForeground(Color.white);
-//		bestScoreString= new JLabel(Integer.toString(this.j.getScore()));
-//		bestScoreString.setFont(font);
-//		bestScoreString.setForeground(new Color(0,0,0));
+		nomJoueurLabel = new JLabel("Score ");
+		nomJoueurLabel.setFont(font);
+		nomJoueurLabel.setForeground(Color.white);
+		scoreLabel= new JLabel("xxxx"); //// TODO: 09/01/2018 call controler to get score j 
+        scoreLabel.setFont(font);
+		scoreLabel.setForeground(new Color(0,0,0));
 		player.setLayout(new FlowLayout());
-		player.add(NomMeilleurScore);	
-		player.add(bestScoreString);
+		player.add(nomJoueurLabel);
+		player.add(scoreLabel);
 		player.setBackground(new Color(123,217,108));
 		add(player);
 		add(deView);
