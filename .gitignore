@@ -1,7 +1,6 @@
-.idea
+.idea/
 .jeuOie.iml
-assets/Fichier
-assets/Image
-assets/Media
-out
-jeuOie.iml
+assets/Fichier/
+assets/Image/
+assets/Media/
+out/
