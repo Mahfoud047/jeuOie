@@ -66,16 +66,14 @@ public class PanelView extends JPanel implements MouseListener, ActionListener {
 		player.setBackground(new Color(123,217,108));
 		add(player);
 		add(deView);
-
 		nouvelle =new BoutonView("         Nouvelle Partie    ");
 		nouvelle.addActionListener(this);
 		add(nouvelle);
 
-
-
 		quitter= new BoutonView("                Quitter");
 		quitter.addActionListener(this);
 		add(quitter);
+
 	}
 
 	//TODO with panel controleur

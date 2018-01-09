@@ -20,9 +20,12 @@ public class DeView extends JPanel implements MouseListener, ActionListener {
 
     public DeView(){
             super();
+            JPanel separerPnl=new JPanel();
+            separerPnl.setPreferredSize(new Dimension(0, 160));
+            add(separerPnl);
             this.setDe(0,0);
             this.setDe(1,0);
-            setPreferredSize(new Dimension(150,70));
+            setPreferredSize(new Dimension(150,220));
             try
             {
                 img1 = ImageIO.read(new File( "assets\\Media\\"+de1+".png"));
