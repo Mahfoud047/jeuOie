@@ -98,7 +98,11 @@ public class PlateauView extends JPanel implements Observer, MouseListener {
     public void mouseClicked(MouseEvent e) {
         String [] msg = plateauControler.deplacerJoueur(e.getX(), e.getY());
         if (msg[0] != null)//// TODO: 10/01/2018
+        if (msg[0] == "definition"){
+            DefinitionView definitionView=new DefinitionView("lklk","mlkùl");
+        }else {
             JOptionPane.showMessageDialog(new Frame(), msg[0], msg[1], JOptionPane.INFORMATION_MESSAGE);
+        }
 
     }
 

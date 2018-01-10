@@ -34,12 +34,7 @@ public class PlateauControler {
 
                 msg = plateau.jouerCase(pos);
 
-                //// TODO: 09/01/2018
-//                lancer.setEnabled(true);
 
-//                //jeu selon case
-//                ((Plateau) arg0.getSource()).jouer(this);
-//                setScores();//// TODO: 09/01/2018
             } else {
                 System.out.println("not case");
                 msg[0] = "fausse case !! veuillez cliquer sur la case " + (pos + 1);

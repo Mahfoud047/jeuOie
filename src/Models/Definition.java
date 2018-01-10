@@ -14,7 +14,7 @@ public class Definition extends Question {
 
     @SuppressWarnings("unchecked")
     public String jouerCase() {
-        return "";
+        return "definition";
 //		// generer une question
 //		Random rand = new Random();
 //		String definition="", secretWord="";

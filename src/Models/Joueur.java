@@ -27,15 +27,6 @@ public class Joueur extends Observable{
 		return instance;
 	}
 
-	public String getNom() 
-	{
-		return nom;
-	}
-	
-	public void setNom(String nom) 
-	{
-		this.nom = nom;
-	}	
 	
 	public int getScore() 
 	{
@@ -58,20 +49,12 @@ public class Joueur extends Observable{
         notifyObservers("pionChanged");
 	}
 
-	public int getPion() 
-	{
-		return pion;
-	}
 
 	public void setPion(int pion){
 		this.pion = pion;
         pionImage = new File("assets\\Media\\P" + pion + ".png");
 	}
-	
-	public void deplacer(int i)
-	{
-		this.setPosition(this.getPosition()+i);
-	}
+
 	
 	public void incrementer(int i)
 	{	
