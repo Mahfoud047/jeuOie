@@ -67,7 +67,11 @@ public class Joueur extends Observable{
 		this.pion = pion;
         pionImage = new File("assets\\Media\\P" + pion + ".png");
 	}
-	
+
+    public static void dispose(){
+        instance = null;
+    }
+
 	public void deplacer(int i)
 	{
 		this.setPosition(this.getPosition()+i);

@@ -59,6 +59,9 @@ public class Des extends Observable
         this.valDes2 = 0;
     }
 
+    public static void dispose(){
+        instance = null;
+    }
     public void activer()
     {
         actif = true;

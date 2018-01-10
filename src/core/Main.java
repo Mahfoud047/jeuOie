@@ -1,25 +1,45 @@
 package core;
 
+import Controllers.PlateauControler;
 import Models.Des;
 import Models.Joueur;
 import Models.Plateau;
 import Views.PartieView;
+import Views.PlateauView;
 
 public class Main {
 
     static private PartieView p;
 
     public static void main(String[] args) {
-        setPartie();
-        Joueur.getInstance().setPosition(0);
+        nouvellePartie();
     }
-//// TODO: 09/01/2018 dispose player and des
-    public static void setPartie() {
+
+    public static void nouvellePartie() {
+        if (p != null){
+            p.dispose();
+            Des.dispose();
+            Joueur.dispose();
+        }
         Plateau plateau = new Plateau();
         Des des = Des.getInstance();
         des.addObserver(plateau);
-        if (p != null)
-            p.dispose();
         p = new PartieView(plateau, des);
+        Joueur.getInstance().setPosition(0);
     }
+
+
+
+//    public static void factoryMethode(){
+//        Plateau plateau = new Plateau();
+//        PlateauView plateauView = new PlateauView();
+//        PlateauControler plateauControler =
+//        Des des = Des.getInstance();
+//
+//        des.addObserver(plateau);
+//        if (p != null)
+//            p.dispose();
+//        p = new PartieView(plateau, des);
+//    }
+
 }

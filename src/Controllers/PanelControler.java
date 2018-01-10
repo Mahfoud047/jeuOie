@@ -5,7 +5,7 @@ import core.Main;
 public class PanelControler {
 
     public void nouvellePartie(){
-        Main.setPartie();
+        Main.nouvellePartie();
     }
 
     public void quitterPartie(){
