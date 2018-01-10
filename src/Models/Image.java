@@ -13,8 +13,9 @@ public class Image extends Question
 	private static TreeSet tableauIndice = new TreeSet();
 
 
-	public void jouerCase()
+	public String jouerCase()
 	{
+		return "";
 //		int i,l;
 //		// generer les images----------------------------------------
 //		Random rand = new Random();

@@ -96,9 +96,9 @@ public class PlateauView extends JPanel implements Observer, MouseListener {
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        String msg = plateauControler.deplacerJoueur(e.getX(), e.getY());
-        if (msg != null)
-            JOptionPane.showMessageDialog(new Frame(), msg, "Aide", JOptionPane.INFORMATION_MESSAGE);
+        String [] msg = plateauControler.deplacerJoueur(e.getX(), e.getY());
+        if (msg[0] != null)//// TODO: 10/01/2018
+            JOptionPane.showMessageDialog(new Frame(), msg[0], msg[1], JOptionPane.INFORMATION_MESSAGE);
 
     }
 

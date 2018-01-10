@@ -6,7 +6,8 @@ public class Parcours extends Case  {
 
 	static private String FILE_PATH = "assets\\Media\\caseParcour.png";
 
-	public void jouerCase(){
+	public String jouerCase(){
+		return null;
 	}
 	public Boolean isDeplacing() {
 		return false;
@@ -22,6 +23,6 @@ public class Parcours extends Case  {
 
 	@Override
 	public Boolean bloquerPlateau() {
-		return false;
+		return true;
 	}
 }

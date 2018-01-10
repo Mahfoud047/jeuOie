@@ -13,7 +13,8 @@ public class Definition extends Question {
     private static TreeSet tableauIndice = new TreeSet();
 
     @SuppressWarnings("unchecked")
-    public void jouerCase() {
+    public String jouerCase() {
+        return "";
 //		// generer une question
 //		Random rand = new Random();
 //		String definition="", secretWord="";

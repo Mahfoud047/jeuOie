@@ -2,31 +2,33 @@ package Views;
 
 import Controllers.PanelControler;
 import Models.Des;
+import Models.Joueur;
+import Models.Plateau;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.io.File;
 import java.io.IOException;
+import java.util.Observable;
+import java.util.Observer;
 
-public class PanelView extends JPanel implements MouseListener, ActionListener {
+public class PanelView extends JPanel implements ActionListener,Observer {
 
     private PanelControler panelControler;
-    private DeView deView;
+    private DesView desView;
     private BoutonView nouvelle, quitter;
+    JLabel scoreLabel;
 
     public PanelView(int x, int y, Des d) {
         super();
 
         panelControler = new PanelControler();
 
-        deView = new DeView(d);
+        desView = new DesView(d);
 
-        JLabel scoreLabel;
         JLabel nomJoueurLabel;
 
         setPreferredSize(new Dimension(x, y));
@@ -69,7 +71,7 @@ public class PanelView extends JPanel implements MouseListener, ActionListener {
         nomJoueurLabel = new JLabel("Score ");
         nomJoueurLabel.setFont(font);
         nomJoueurLabel.setForeground(Color.white);
-        scoreLabel = new JLabel("xxxx"); //// TODO: 09/01/2018 call controler to get score j
+        scoreLabel = new JLabel("0");
         scoreLabel.setFont(font);
         scoreLabel.setForeground(new Color(0, 0, 0));
         player.setLayout(new FlowLayout());
@@ -77,7 +79,7 @@ public class PanelView extends JPanel implements MouseListener, ActionListener {
         player.add(scoreLabel);
         player.setBackground(new Color(123, 217, 108));
         add(player);
-        add(deView);
+        add(desView);
         nouvelle = new BoutonView("         Nouvelle Partie    ");
         nouvelle.addActionListener(this);
         add(nouvelle);
@@ -91,68 +93,13 @@ public class PanelView extends JPanel implements MouseListener, ActionListener {
     public void paintComponent(Graphics g) {
         try {
             Image img = ImageIO.read(new File("assets\\Media\\fondInfo.png"));
-            g.drawImage(img, 0, 00, this.getWidth(), this.getHeight(), this);
+            g.drawImage(img, 0, 0, this.getWidth(), this.getHeight(), this);
         } catch (IOException e) {
             Color c = g.getColor();
             g.setColor(new Color(123, 217, 108));
             g.fillRect(0, 0, this.getWidth(), this.getHeight());
             g.setColor(c);
         }
-    }
-
-    public void mouseClicked(MouseEvent arg0) {
-////		int pos = somme+((Plateau)arg0.getSource()).getPos();
-////		if (pos >99)
-////			pos =100 - (pos - 100) -2;
-//
-//		if ((((Plateau)arg0.getSource()).isActif()) &&(
-//				(arg0.getX()> Plateau.coord[ pos][0]+3)
-//			 && (arg0.getX()<(Plateau.coord[ pos][0])+45)
-//			 && (arg0.getY()> Plateau.coord[ pos][1]+3)
-//			 && (arg0.getY()<(Plateau.coord[ pos][1])+40)))
-//		{
-//			((Plateau)arg0.getSource()).setPos(pos);
-//			((Plateau)arg0.getSource()).repaint();
-//			deView.setImages(0,0);
-//			deView.setSomme(0);
-//			deView.repaint();
-//			somme =0;
-//			((Plateau)arg0.getSource()).desactiver();
-//			lancer.setEnabled(true);
-//			//jeu selon case
-//			((Plateau)arg0.getSource()).jouer(this);
-//			setScores();
-//		}
-//		else if (((Plateau)arg0.getSource()).isActif())
-//		{
-//			try
-//			{
-//				throw new CaseException();
-//			}catch (Exception e)
-//			{
-//				JOptionPane.showMessageDialog(new Frame(), "fausse case !! veuillez cliquer sur la case "+(pos+1), "Aide",JOptionPane.INFORMATION_MESSAGE);
-//			}
-//		}
-//		else JOptionPane.showMessageDialog(new Frame(), "Vous devez D'abord lancer les des !", "Aide",JOptionPane.INFORMATION_MESSAGE);
-    }
-
-    public void setScores() {
-//		bestScoreString.setText(Integer.toString(this.j.getScore()));
-    }
-
-    //	public BoutonView getLancerDes(){	return lancer;	}
-//	public BoutonView getQuitter(){	return quitter;	}
-    public void mouseEntered(MouseEvent arg0) {
-
-    }
-
-    public void mouseExited(MouseEvent arg0) {
-    }
-
-    public void mousePressed(MouseEvent arg0) {
-    }
-
-    public void mouseReleased(MouseEvent arg0) {
     }
 
     public void actionPerformed(ActionEvent e) {
@@ -164,4 +111,11 @@ public class PanelView extends JPanel implements MouseListener, ActionListener {
 
     }
 
+    @Override
+    public void update(Observable o, Object arg) {
+        if (o instanceof Plateau && arg.equals("caseJouer")){
+            desView.setImages(0,0);
+            scoreLabel.setText(Joueur.getInstance().getScore()+"");
+        }
+    }
 }

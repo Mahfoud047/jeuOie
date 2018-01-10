@@ -54,6 +54,10 @@ public class Des extends Observable
 		return valDes2;
 	}
 
+    public void setValDes(int valDes1) {
+        this.valDes1 = valDes1;
+        this.valDes2 = 0;
+    }
 
     public void activer()
     {

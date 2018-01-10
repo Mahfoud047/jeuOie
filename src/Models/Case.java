@@ -14,7 +14,7 @@ public abstract class Case {
         this.position = position;
     }
 
-    public abstract void jouerCase();
+    public abstract String jouerCase();
     public abstract Boolean isDeplacing();
     public abstract int getDeplacement();
     public abstract File getFile();

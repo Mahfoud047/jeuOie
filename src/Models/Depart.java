@@ -7,8 +7,8 @@ public class Depart extends Case
 	static private String FILE_PATH = "assets\\Media\\caseDepart.png";
 
 	@Override
-	public void jouerCase() {
-
+	public String jouerCase() {
+		return "";
 	}
 
 	public Boolean isDeplacing()

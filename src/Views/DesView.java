@@ -8,12 +8,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.io.File;
 import java.io.IOException;
 
-public class DeView extends JPanel implements ActionListener {
+public class DesView extends JPanel implements ActionListener {
     private BoutonView lancer;
     private Image img1;
     private Image img2;
@@ -21,7 +19,7 @@ public class DeView extends JPanel implements ActionListener {
     private int de2;
     private DesControler desControler;
 
-    public DeView(Des des) {
+    public DesView(Des des) {
         super();
 
         desControler = new DesControler(des);
@@ -64,17 +62,6 @@ public class DeView extends JPanel implements ActionListener {
             g.drawImage(img1, 20, 15, this);
             g.drawImage(img2, 80, 15, this);
         } catch (Exception e) {
-        }
-    }
-
-    public int getDe(int numDe) {
-        switch (numDe) {
-            case 0:
-                return de1;
-            case 1:
-                return de2;
-            default:
-                return de1;
         }
     }
 

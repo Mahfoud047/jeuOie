@@ -18,8 +18,8 @@ public class PlateauControler {
         return plateau.getCases();
     }
 
-    public String deplacerJoueur(int x, int y) {
-        String msg = null;
+    public String [] deplacerJoueur(int x, int y) {
+        String [] msg = {"",""};
 
         if (plateau.isActif()) {
             int pos = Des.getInstance().getValeurDes1()
@@ -32,8 +32,7 @@ public class PlateauControler {
 
                 Joueur.getInstance().setPosition(pos);
 
-//                plateau.desactiver();
-                plateau.jouerCase(pos);
+                msg = plateau.jouerCase(pos);
 
                 //// TODO: 09/01/2018
 //                lancer.setEnabled(true);
@@ -43,11 +42,13 @@ public class PlateauControler {
 //                setScores();//// TODO: 09/01/2018
             } else {
                 System.out.println("not case");
-                msg = "fausse case !! veuillez cliquer sur la case " + (pos + 1);
+                msg[0] = "fausse case !! veuillez cliquer sur la case " + (pos + 1);
+                msg[1] = "Aide";
             }
         } else {
             System.out.println("not des");
-            msg = "Vous devez D'abord lancer les des !";
+            msg[0] = "Vous devez D'abord lancer les des !";
+            msg[1] = "Aide";
         }
 
         return msg;

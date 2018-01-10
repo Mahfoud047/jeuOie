@@ -10,8 +10,9 @@ public class Fin extends Case
 {
     static private String FILE_PATH = "assets\\Media\\caseFin.png";
 
-    public void jouerCase()
+    public String jouerCase()
 	{
+		return "";
 //		Joueur j=Joueur.getInstance();
 //		BufferedWriter fich = null;
 //		BufferedReader in =null;

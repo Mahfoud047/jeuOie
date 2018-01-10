@@ -32,6 +32,8 @@ public class PartieView extends JFrame implements ActionListener {
                 610
                 , d
         );
+        p.addObserver(panelView);
+
 //	    plat.addMouseListener(panInfo);
 //	    (panInfo.getLancerDes()).addActionListener(plat);
 //	    (panInfo.getQuitter()).addActionListener(this);
