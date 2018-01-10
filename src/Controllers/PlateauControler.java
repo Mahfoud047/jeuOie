@@ -1,10 +1,8 @@
 package Controllers;
 
 
-import Models.Case;
-import Models.Des;
-import Models.Joueur;
-import Models.Plateau;
+import Models.*;
+import Views.DefinitionView;
 import Views.PlateauView;
 
 public class PlateauControler {
@@ -33,7 +31,10 @@ public class PlateauControler {
                 Joueur.getInstance().setPosition(pos);
 
                 msg = plateau.jouerCase(pos);
-
+                if (msg[0]=="definition") {
+                    DefinitionView definitionView = new DefinitionView((Definition) this.plateau.getCases()[pos]);
+                    msg[0]=null;
+                }
 
             } else {
                 System.out.println("not case");
