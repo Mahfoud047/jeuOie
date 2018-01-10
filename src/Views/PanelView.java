@@ -29,6 +29,8 @@ public class PanelView extends JPanel implements ActionListener,Observer {
 
         desView = new DesView(d);
 
+        Joueur.getInstance().addObserver(this);
+
         JLabel nomJoueurLabel;
 
         setPreferredSize(new Dimension(x, y));
@@ -115,6 +117,8 @@ public class PanelView extends JPanel implements ActionListener,Observer {
     public void update(Observable o, Object arg) {
         if (o instanceof Plateau && arg.equals("caseJouer")){
             desView.setImages(0,0);
+            scoreLabel.setText(Joueur.getInstance().getScore()+"");
+        }else if (o instanceof Joueur && arg.equals("scoreChange")){
             scoreLabel.setText(Joueur.getInstance().getScore()+"");
         }
     }

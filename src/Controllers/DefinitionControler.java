@@ -15,10 +15,13 @@ Definition definition;
     public String getQuestion(){
         return definition.getQuestion();
     }
-    public String getReponse(){
-        return definition.getReponse();
+    public int getLengthReponse(){
+        return definition.getReponse().length();
     }
 
+    public boolean reponseIsCorrect(String reponseJoueur){
+        return reponseJoueur.equalsIgnoreCase(definition.getReponse());
+    }
     public void changerScoreJoueur(boolean gagner){
         if (gagner)
         Joueur.getInstance().incrementer(Definition.getPOINTGAGNE());

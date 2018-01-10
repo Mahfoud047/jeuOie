@@ -16,7 +16,7 @@ public class DefinitionView extends JFrame implements ActionListener
 {
 	private JTextField []reponseField;
 	private DefinitionControler definitionControler;
-	String reponse;
+	int lengthReponse;
 
 	public DefinitionView(Definition definition)
 	{
@@ -29,8 +29,8 @@ public class DefinitionView extends JFrame implements ActionListener
 		//Creation du controleur de la vue
 		definitionControler=new DefinitionControler(definition);
 		String question=definitionControler.getQuestion();
-		reponse=definitionControler.getReponse();							// La bonne reponse
-		reponseField =new JTextField[reponse.length()];	// La reponse introduite par l'utilisateur
+		lengthReponse=definitionControler.getLengthReponse();							// La bonne reponse
+		reponseField =new JTextField[lengthReponse];	// La reponse introduite par l'utilisateur
 	    JButton bt = new JButton("     ok     ");				//bouton de validation
 	    JPanel rps = new JPanel();
 	    for(int i=0;i<reponseField.length;i++)
@@ -71,7 +71,7 @@ public class DefinitionView extends JFrame implements ActionListener
 	    Boolean aRpdu = true;
 	    String rp="";
 	    String token;
-	    for(int i=0;i<reponse.length();i++)
+	    for(int i=0;i<lengthReponse;i++)
 	    {
 	    	StringTokenizer tok = new StringTokenizer(reponseField[i].getText(), " ");
 			while(tok.hasMoreTokens())
@@ -85,9 +85,10 @@ public class DefinitionView extends JFrame implements ActionListener
 				rp = rp +token;
 			}
 	    }
-	    if (rp.length()!=reponse.length()) aRpdu = false;
+	    if (rp.length()!=lengthReponse) aRpdu = false;
 		if(aRpdu){
-			if(rp.equalsIgnoreCase(reponse))
+			boolean reponseJuste=definitionControler.reponseIsCorrect(rp);
+			if(reponseJuste)
 			{
 				definitionControler.changerScoreJoueur(true);
 			    JOptionPane.showMessageDialog(new Frame(),
