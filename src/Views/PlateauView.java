@@ -10,8 +10,6 @@ import java.awt.event.MouseListener;
 import java.io.*;
 import java.awt.*;
 import java.awt.Image;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.Observable;
 import java.util.Observer;
 import javax.imageio.ImageIO;
@@ -99,6 +97,7 @@ public class PlateauView extends JPanel implements Observer, MouseListener {
         String [] msg = plateauControler.deplacerJoueur(e.getX(), e.getY());
         if (msg[0] != null)//// TODO: 10/01/2018
             JOptionPane.showMessageDialog(new Frame(), msg[0], msg[1], JOptionPane.INFORMATION_MESSAGE);
+
 
     }
 
