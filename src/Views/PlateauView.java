@@ -4,7 +4,6 @@ import Controllers.PlateauControler;
 import Models.Case;
 import Models.Joueur;
 import Models.Plateau;
-
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.*;
@@ -20,7 +19,6 @@ public class PlateauView extends JPanel implements Observer, MouseListener {
 
     private final int decXPion = 19 - 7;
     private final int decYPion = 509 - 475;
-
 
     public final static int[][] coord = {
             //10 cases /////
@@ -63,13 +61,14 @@ public class PlateauView extends JPanel implements Observer, MouseListener {
             //dessiner le fond
             Image img = ImageIO.read(new File("assets\\Media\\fondCases.png"));
             g.drawImage(img, 0, 0, this);
-//			todo this is a diff
-            Case[] cases = plateauControler.getCases();
+
             //dessiner les cases
+            Case[] cases = plateauControler.getCases();
             for (i = 0; i < coord.length ; i++) {
                 img = ImageIO.read(cases[i].getFile());
                 g.drawImage(img, coord[i][0], coord[i][1], this);
             }
+
             //numeroter les cases
             img = ImageIO.read(new File("assets\\Media\\numCases.png"));
             g.drawImage(img, 0, 0, this);
@@ -95,10 +94,8 @@ public class PlateauView extends JPanel implements Observer, MouseListener {
     @Override
     public void mouseClicked(MouseEvent e) {
         String [] msg = plateauControler.deplacerJoueur(e.getX(), e.getY());
-        if (msg[0] != null)//// TODO: 10/01/2018
+        if (msg[0] != null)
             JOptionPane.showMessageDialog(new Frame(), msg[0], msg[1], JOptionPane.INFORMATION_MESSAGE);
-
-
     }
 
     @Override

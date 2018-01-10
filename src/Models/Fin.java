@@ -9,16 +9,6 @@ public class Fin extends Case
     public String jouerCase(){
 		return "Fin de la partie !\nVous avez obtenu un score de "+Joueur.getInstance().getScore()+" points !\n(nouvelle Partie) pour rejouer";
 	}
-	
-	public Boolean isDeplacing() 
-	{
-		return false;
-	}
-	
-	public int getDeplacement() 
-	{
-		return 0;
-	}
 
 	@Override
 	public File getFile() {

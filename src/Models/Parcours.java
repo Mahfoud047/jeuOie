@@ -9,12 +9,6 @@ public class Parcours extends Case  {
 	public String jouerCase(){
 		return null;
 	}
-	public Boolean isDeplacing() {
-		return false;
-	}
-	public int getDeplacement() {
-		return 0;
-	}
 
 	@Override
 	public File getFile() {

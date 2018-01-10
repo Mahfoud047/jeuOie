@@ -62,14 +62,10 @@ public class Des extends Observable
     public static void dispose(){
         instance = null;
     }
+
     public void activer()
     {
         actif = true;
-    }
-
-    public void desactiver()
-    {
-        actif = false;
     }
 
     public Boolean isActif()

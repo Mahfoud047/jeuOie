@@ -8,17 +8,7 @@ public class Depart extends Case
 
 	@Override
 	public String jouerCase() {
-		return "";
-	}
-
-	public Boolean isDeplacing()
-	{
-		return false;
-	}
-
-	public int getDeplacement() 
-	{
-		return 0;
+		return "Case Depart";
 	}
 
     @Override

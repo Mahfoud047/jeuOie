@@ -24,11 +24,16 @@ public class Plateau extends Observable implements Observer {
 
         cases[0] = new Depart();
         cases[99] = new Fin();
-        cases[0].setPosition(0);
-        cases[99].setPosition(99);
+
+        Parcours parcours = new Parcours();
+        Malus malus=new Malus();
+        Bonus bonus=new Bonus();
+        Definition definition=new Definition();
+        Image image=new Image();
+        Saut saut=new Saut();
+
         for (i = 1; i < 99; i++) {
             cases[i] = new Parcours();
-            cases[i].setPosition(i);
         }
         i = 0;
         while (i < 10) {

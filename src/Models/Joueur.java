@@ -46,12 +46,14 @@ public class Joueur extends Observable {
         notifyObservers("pionChanged");
     }
 
+    public static void dispose() {
+        instance = null;
+    }
 
     public void setPion(int pion) {
         this.pion = pion;
         pionImage = new File("assets\\Media\\P" + pion + ".png");
     }
-
 
     public void incrementer(int i) {
         this.setScore(this.getScore() + i);

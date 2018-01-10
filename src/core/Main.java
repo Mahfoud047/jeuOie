@@ -1,11 +1,9 @@
 package core;
 
-import Controllers.PlateauControler;
 import Models.Des;
 import Models.Joueur;
 import Models.Plateau;
 import Views.PartieView;
-import Views.PlateauView;
 
 public class Main {
 
@@ -16,7 +14,7 @@ public class Main {
     }
 
     public static void nouvellePartie() {
-        if (p != null){
+        if (p != null) {
             p.dispose();
             Des.dispose();
             Joueur.dispose();
@@ -27,19 +25,4 @@ public class Main {
         p = new PartieView(plateau, des);
         Joueur.getInstance().setPosition(0);
     }
-
-
-
-//    public static void factoryMethode(){
-//        Plateau plateau = new Plateau();
-//        PlateauView plateauView = new PlateauView();
-//        PlateauControler plateauControler =
-//        Des des = Des.getInstance();
-//
-//        des.addObserver(plateau);
-//        if (p != null)
-//            p.dispose();
-//        p = new PartieView(plateau, des);
-//    }
-
 }
