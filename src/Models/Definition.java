@@ -7,8 +7,6 @@ import java.util.TreeSet;
 public class Definition extends Question {
     static private String FILE_PATH = "assets\\Media\\caseDef.png";
 
-
-
     private  static final int POINTGAGNE = 20;
     private  static final int POINTPERDU = -10;
     private static String question="La question?";

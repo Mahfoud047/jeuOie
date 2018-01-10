@@ -33,13 +33,13 @@ public class Plateau extends Observable implements Observer {
         Saut saut=new Saut();
 
         for (i = 1; i < 99; i++) {
-            cases[i] = new Parcours();
+            cases[i] = parcours;
         }
         i = 0;
         while (i < 10) {
             nombreAleatoire = rand.nextInt(98 - 1 + 1) + 1;
             if ((cases[nombreAleatoire] instanceof Parcours) && (nombreAleatoire != 98)) {
-                cases[nombreAleatoire] = new Bonus();
+                cases[nombreAleatoire] = bonus;
                 i++;
             }
         }
@@ -48,7 +48,7 @@ public class Plateau extends Observable implements Observer {
             nombreAleatoire = rand.nextInt(98 - 1 + 1) + 1;
             if ((cases[nombreAleatoire] instanceof Parcours) && (nombreAleatoire != 1)) {
                 if (!(cases[nombreAleatoire - 2] instanceof Bonus)) {
-                    cases[nombreAleatoire] = new Malus();
+                    cases[nombreAleatoire] = malus;
                     i++;
                 }
             }
@@ -57,7 +57,7 @@ public class Plateau extends Observable implements Observer {
         while (i < 10) {
             nombreAleatoire = rand.nextInt(98 - 1 + 1) + 1;
             if (cases[nombreAleatoire] instanceof Parcours) {
-                cases[nombreAleatoire] = new Saut();
+                cases[nombreAleatoire] = saut;
                 i++;
             }
         }
@@ -67,11 +67,11 @@ public class Plateau extends Observable implements Observer {
             if ((cases[nombreAleatoire] instanceof Parcours) && (nombreAleatoire != 97)) {
                 if (nombreAleatoire < 95) {
                     if ((!(cases[nombreAleatoire + 2] instanceof Malus)) || (!(cases[nombreAleatoire + 4] instanceof Malus))) {
-                        cases[nombreAleatoire] = new Definition();
+                        cases[nombreAleatoire] = definition;
                         i++;
                     }
                 } else {
-                    cases[nombreAleatoire] = new Definition();
+                    cases[nombreAleatoire] = definition;
                     i++;
                 }
             }
@@ -82,11 +82,11 @@ public class Plateau extends Observable implements Observer {
             if ((cases[nombreAleatoire] instanceof Parcours) && (nombreAleatoire != 98)) {
                 if (nombreAleatoire < 97) {
                     if (!(cases[nombreAleatoire + 2] instanceof Malus)) {
-                        cases[nombreAleatoire] = new Models.Image();
+                        cases[nombreAleatoire] = image;
                         i++;
                     }
                 } else {
-                    cases[nombreAleatoire] = new Models.Image();
+                    cases[nombreAleatoire] = image;
                     i++;
                 }
             }
