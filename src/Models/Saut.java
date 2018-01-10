@@ -24,8 +24,8 @@ public class Saut extends Case {
         int dep = rand.nextInt(100) + 1;
 
         Des d = Des.getInstance();
-        d.setValDes(rand.nextInt(100) + 1);
-        return "Case Saut! \nAvancer vers la case N�"+(dep+1);
+        d.setValDes(dep - Joueur.getInstance().getPosition());
+        return "Case Saut! \nAvancer vers la case N°"+(dep+1);
     }
 
     public Boolean isDeplacing() {
