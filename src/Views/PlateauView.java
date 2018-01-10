@@ -68,7 +68,7 @@ public class PlateauView extends JPanel implements Observer, MouseListener {
 //			todo this is a diff
             Case[] cases = plateauControler.getCases();
             //dessiner les cases
-            for (i = 0; i < coord.length - 1; i++) {
+            for (i = 0; i < coord.length ; i++) {
                 img = ImageIO.read(cases[i].getFile());
                 g.drawImage(img, coord[i][0], coord[i][1], this);
             }
@@ -121,19 +121,4 @@ public class PlateauView extends JPanel implements Observer, MouseListener {
     public void mouseExited(MouseEvent e) {
 
     }
-
-//	public void jouer(PanneauInfo l)
-//	{
-//		tab[j.getPosition()].jouerCase(j);
-//		if(!(tab[j.getPosition()]instanceof Definition)&&!(tab[j.getPosition()]instanceof jeuOie.Image))
-//		{
-//			if(tab[j.getPosition()].isDeplacing())
-//			{
-//				l.setSomme(tab[j.getPosition()].getDeplacement());
-//				l.getLancerDes().setEnabled(false);
-//				actif = true;
-//			}
-//		}
-//	}
-
 }
