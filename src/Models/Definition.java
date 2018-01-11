@@ -1,5 +1,8 @@
 package Models;
 
+import core.DefinitionData;
+import core.DefinitionDataFichier;
+
 import java.io.File;
 
 public class Definition extends Question {
@@ -9,13 +12,21 @@ public class Definition extends Question {
     private  static final int POINTPERDU = -10;
     private static String question="La question?";
     private static String reponse="reponse";
+    DefinitionData definitionData;
 
+    public Definition(){
+        definitionData = new DefinitionDataFichier();
+    }
 
-    public static String getReponse() {
+    public String getReponse() {
         return reponse;
     }
 
-    public static String getQuestion() {
+    public String getQuestion() {
+        String def[] = definitionData.getDifinition();
+        question = def[0];
+        reponse = def[1];
+
         return question;
     }
 
@@ -25,21 +36,14 @@ public class Definition extends Question {
 
     }
 
-    public int getDeplacement() {
-        return DEPLACEMENT;
-    }
-
-    public static int getPOINTGAGNE() {
+    public int getPOINTGAGNE() {
         return POINTGAGNE;
     }
 
-    public static int getPOINTPERDU() {
+    public int getPOINTPERDU() {
         return POINTPERDU;
     }
 
-    public void setDeplacement(int k) {
-        DEPLACEMENT = k;
-    }
     @Override
     public File getFile() {
         return new File(this.FILE_PATH);

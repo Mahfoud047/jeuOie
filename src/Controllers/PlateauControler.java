@@ -26,23 +26,20 @@ public class PlateauControler {
             if (pos > 99)
                 pos = 100 - (pos - 100) - 2;
             if (isCaseDestination(x, y, pos)) {
-                System.out.println("ok");
 
                 Joueur.getInstance().setPosition(pos);
 
                 msg = plateau.jouerCase(pos);
                 if (msg[0]=="definition") {
-                    DefinitionView definitionView = new DefinitionView((Definition) this.plateau.getCases()[pos]);
+                    new DefinitionView((Definition) this.plateau.getCases()[pos]);
                     msg[0]=null;
                 }
 
             } else {
-                System.out.println("not case");
                 msg[0] = "fausse case !! veuillez cliquer sur la case " + (pos + 1);
                 msg[1] = "Aide";
             }
         } else {
-            System.out.println("not des");
             msg[0] = "Vous devez D'abord lancer les des !";
             msg[1] = "Aide";
         }

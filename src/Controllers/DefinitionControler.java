@@ -3,9 +3,6 @@ package Controllers;
 import Models.Definition;
 import Models.Joueur;
 
-/**
- * Created by Mahfoud on 10/01/2018.
- */
 public class DefinitionControler {
 Definition definition;
     public DefinitionControler(Definition definition){
@@ -24,8 +21,8 @@ Definition definition;
     }
     public void changerScoreJoueur(boolean gagner){
         if (gagner)
-        Joueur.getInstance().incrementer(Definition.getPOINTGAGNE());
+        Joueur.getInstance().incrementer(definition.getPOINTGAGNE());
         else
-        Joueur.getInstance().incrementer(Definition.getPOINTPERDU());
+        Joueur.getInstance().incrementer(definition.getPOINTPERDU());
     }
 }
