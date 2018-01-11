@@ -57,7 +57,7 @@ public class DesView extends JPanel implements ActionListener {
 
     public void paintComponent(Graphics g) {
         try {
-            g.setColor(new Color(123, 217, 108));
+            g.setColor(new Color(0, 81, 148));
             g.fillRect(0, 0, this.getWidth(), this.getHeight());
             g.drawImage(img1, 20, 15, this);
             g.drawImage(img2, 80, 15, this);

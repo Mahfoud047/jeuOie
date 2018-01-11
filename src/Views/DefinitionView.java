@@ -48,7 +48,7 @@ public class DefinitionView extends JFrame implements ActionListener
 	    def.setPreferredSize(new Dimension(350,30));
 	    this.getContentPane().add(def);
 	    def = new JPanel();
-	    def.setBackground(Color.GREEN);
+	    def.setBackground(new Color(0, 81, 148));
 	    def.setPreferredSize(new Dimension(450,100));
 	    def.add(new JLabel("                                                                                                                                                                                "));
 	    StringTokenizer tok = new StringTokenizer(question, ", ");

@@ -1,8 +1,6 @@
 package Models;
 
 import java.io.File;
-import java.util.Random;
-import java.util.TreeSet;
 
 public class Definition extends Question {
     static private String FILE_PATH = "assets\\Media\\caseDef.png";
@@ -22,15 +20,9 @@ public class Definition extends Question {
     }
 
 
-    @SuppressWarnings("unchecked")
     public String jouerCase() {
         return "definition";
 
-    }
-
-    public Boolean isDeplacing() {
-        if (DEPLACEMENT > 0) return true;
-        else return false;
     }
 
     public int getDeplacement() {

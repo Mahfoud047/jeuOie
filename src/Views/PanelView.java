@@ -54,7 +54,7 @@ public class PanelView extends JPanel implements ActionListener,Observer {
         best.setLayout(new FlowLayout());
         best.add(nomJoueurLabel);
         best.add(scoreLabel);
-        best.setBackground(new Color(123, 217, 108));
+        best.setBackground(new Color(0, 0, 0, 0));
         add(best);
 
         //Joueur
@@ -79,7 +79,7 @@ public class PanelView extends JPanel implements ActionListener,Observer {
         player.setLayout(new FlowLayout());
         player.add(nomJoueurLabel);
         player.add(scoreLabel);
-        player.setBackground(new Color(123, 217, 108));
+        player.setBackground(new Color(0, 0, 0, 0));
         add(player);
         add(desView);
         nouvelle = new BoutonView("         Nouvelle Partie    ");
